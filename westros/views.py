@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 from .forms import UserForm
 from .models import Anime,Genre,Like
 import numpy
-import random
+#import random
 from sklearn.naive_bayes import GaussianNB
 
 def homepage(request):
@@ -193,6 +193,6 @@ def recommendations(request):
             if L[i]==1:
                 li.append(t[i])
         print (len([i for i in L if i ==0]))
-        random.shuffle(li)
-        li.reverse()
+   #     random.shuffle(li)
+    #    li.reverse()
         return render(request, 'westros/recommendations.html', { 'li': li[:18]})
