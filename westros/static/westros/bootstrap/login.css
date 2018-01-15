@@ -1,0 +1,44 @@
+#form
+{
+  
+  text-align:center; 
+  vertical-align:middle;
+}
+
+#frm
+{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 16px; 
+}
+.jumbotron {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    opacity: 0.7;
+}
+.container {
+    position: relative;
+    height: 100vh;
+}
+body{
+	background-image: url("images/goku_ultra_instinct_by_secrethet-dbq4jz6.png");
+  background-color: #FFFFFF;
+        background-position:center;
+        background-size:cover;
+    padding-bottom: 70px;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-success {
+	color: #FFFFFF;
+	background-color: #7F9293;
+	border-color: #74898A;
+}
+.btn-default{
+	background-color: turquoise;
+}

@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/css/bootstrap.min.css'%}">
+            <link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/style.css'%}">
+            
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body>
+    <nav class="nav navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'westros:index' %}">Westros</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="{% url 'westros:index' %}">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home
+                    </a>
+                </li>
+             <li>
+                    <a href="{% url 'westros:explore' %}">
+                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp; Explore All
+                    </a>
+                </li>
+		<li class="">
+                    <a href="{% url 'westros:favanime' %}">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp; Favourate Anime
+                    </a>
+                </li>
+		<li class="">
+                    <a href="{% url 'westros:recommendations' %}">
+                        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>&nbsp; Recommendations
+                    </a>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-left" role="search" method="POST" action="{% url 'westros:search' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="query" >
+                </div>	
+                <button type="submit" class="btn btn-default">
+		<i class="glyphicon glyphicon-search"></i>
+		</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="{% url 'westros:latestanime' %}">
+                        <span class="glyphicon glyphicon-wifi-alt" aria-hidden="true"></span>&nbsp; RSS
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{% url 'westros:logout_user' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+{% block body %}
+{% endblock %}
+       <nav class="navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="navbar-brand">WestRos 2017</p>
+      </div>
+    </div>
+  </nav>
+</body>
+
+</html>

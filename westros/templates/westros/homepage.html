@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	<title>WestRos</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/style2.css' %}">
+	{% endblock %}
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{% url 'westros:index' %}">WestRos</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{% url 'westros:about_us' %}">About us</a></li>
+			</ul>
+		</div>
+	</nav>
+	{% block body %}
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>Welcome to WestRos</h1>
+			<h3>Access over 11000 Anime</h3>
+			<a class="btn btn-success btn-lg" href="{% url 'westros:login_user' %}">Login</a>
+			<a class="btn btn-primary btn-lg" href="{% url 'westros:register' %}">Signup</a>
+		</div>
+	</div>
+	{% endblock %}
+	<nav class="navbar-inverse navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<p class="navbar-brand">WestRos 2017</p>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

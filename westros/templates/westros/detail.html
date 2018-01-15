@@ -1,0 +1,28 @@
+{% extends "westros/base.html" %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	<title>Detail</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/style3.css' %}">
+	{% endblock %}
+</head>
+{% block body %}
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>{{ anime.name }}</h1>
+			<h1>Genres: </h1>
+			<ul>
+			{% for i in g %}
+				<li>{{ i }}</li>
+			{% endfor %}
+			</ul>
+			<h1>Tag: {{ anime.tag }}</h1>
+			<h1>Rating : {{ anime.rating }}</h1>
+			<h1>Episodes : {{ anime.epidodes }}</h1>
+			<h1>Members : {{ anime.members }}</h1>
+		</div>
+    </div>    	
+{% endblock %}        

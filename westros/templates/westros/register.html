@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href={% static 'westros/bootstrap/css/bootstrap.min.css' %}>
+        <link rel="stylesheet" type="text/css" href={% static 'westros/bootstrap/login.css' %}>
+    </head>
+    <body>
+    <div class="container">
+
+    <div class="jumbotron text-center">
+                <div>
+                    <h2 style="color:#ffffff">Signup to Access The Services</h2>
+                </div>
+                <div>
+                    <form class="form-horizontal" action="" method="post">
+                        {% csrf_token %}
+                        {% include 'westros/form-template.html' %}
+                        <div class="form-group">
+                            <div>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    For terms and conditions <a href="{% url 'westros:terms' %}">Click here</a>.
+                </div>
+            </div>
+</div>
+</body>
+</html>

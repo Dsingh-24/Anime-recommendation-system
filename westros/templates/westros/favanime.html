@@ -1,0 +1,47 @@
+{% extends "westros/base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <title>Favorite Anime</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'westros/bootstrap/style.css'%}">
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+	<div class="row">
+        <div class="col-sm-12">
+            <h3><center><b><i>Favourate Anime</i></b></center></h3>
+        </div>
+        {% for animes in fa %}
+        	<div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'westros:detail' animes.id %}">
+                            <img src="static/westros/bootstrap/images/ra{{ forloop.counter }}.jpg" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ animes.name }}</h2>
+                            <a href="{% url 'westros:like' animes.id 0 %}" class="btn btn-danger btn-sm" role="button"><span class="fa fa-heart">Not A Fan</span></a>
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+        {% endfor %}
+        <div class="col-sm-12">
+            <h3><center><b><i>Not A Fan</i></b></center></h3>
+        </div>
+        {% for animes in naf %}
+        	<div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'westros:detail' animes.id %}">
+                            <img src="static/westros/bootstrap/images/ra{{ forloop.counter }}.jpg" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ animes.name }}</h2>
+                            <a href="{% url 'westros:like' animes.id 1 %}" class="btn btn-success btn-sm" role="button"><span class="fa fa-heart">Favorite</span></a>
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}    
